@@ -4,6 +4,7 @@ This project consists in create a Authentication API using [Flask](https://flask
 
 ## Requirements
 
+- The API must to persist data on database;
 - The API must to have the following endpoints:
   - Login User;
   - Logout User;
@@ -12,15 +13,13 @@ This project consists in create a Authentication API using [Flask](https://flask
   - Update User;
   - Delete User;
 
-<!-- ## Run project
+## Run project
 
 ```python
 python app.py
 ```
 
-## Run Tests
+## References
 
-```python
-python app.py
-pytest tests.py -v
-``` -->
+- [Flask](https://flask.palletsprojects.com/en/3.0.x/)
+- [Flask SQLAlchemy](https://flask-sqlalchemy.readthedocs.io/en/3.1.x/)
