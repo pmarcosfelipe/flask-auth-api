@@ -19,6 +19,16 @@ This project consists in create a Authentication API using [Flask](https://flask
 python app.py
 ```
 
+## Create Database
+
+Open terminal and type
+
+```python
+flask shell
+db.create_all()
+db.session.commit()
+```
+
 ## References
 
 - [Flask](https://flask.palletsprojects.com/en/3.0.x/)
