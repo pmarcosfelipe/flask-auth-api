@@ -55,9 +55,53 @@ def create_user():
     db.session.add(user)
     db.session.commit()
 
-    return jsonify({"message": "User created sucessfully!"}), 200
+    return jsonify({"message": "User created successfully!"}), 200
     
   return jsonify({"message": "Invalid credentials!"}), 400
+
+
+@app.route("/user/<int:user_id>", methods=["GET"])
+@login_required
+def get_user(user_id):
+  user = User.query.get(user_id)
+
+  if user:
+    return {"username": user.username}
+  
+  return jsonify({"message": "User not found!"}), 404
+
+
+@app.route("/user/<int:user_id>", methods=["PUT"])
+@login_required
+def update_user(user_id):
+  data = request.json
+  user = User.query.get(user_id)
+
+  if user and data.get("password"):
+    user.password = data.get("password")
+    db.session.commit()
+
+    return jsonify({"message": f"User {user_id} updated successfully!"})
+  
+  return jsonify({"message": "User not found!"}), 404
+
+
+@app.route("/user/<int:user_id>", methods=["DELETE"])
+@login_required
+def delete_user(user_id):
+  user = User.query.get(user_id)
+
+  if user_id == current_user.id:
+    return jsonify({"message": f"Operation not allowed!"}), 403
+  
+
+  if user: 
+    db.session.delete(user)
+    db.session.commit()
+    return jsonify({"message": f"User {user_id} delete successfully!"})
+  
+  return jsonify({"message": "User not found!"}), 404
+
 
 
 @app.route("/", methods=["GET"])
