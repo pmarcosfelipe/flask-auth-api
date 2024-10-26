@@ -21,7 +21,7 @@ python app.py
 
 ## Create Database
 
-Open terminal and type
+Open terminal and run the scripts:
 
 ```python
 flask shell
@@ -29,7 +29,16 @@ db.create_all()
 db.session.commit()
 ```
 
+## Run Docker
+
+Open terminal and run the scripts:
+
+```
+docker-compose up -d
+```
+
 ## References
 
 - [Flask](https://flask.palletsprojects.com/en/3.0.x/)
 - [Flask SQLAlchemy](https://flask-sqlalchemy.readthedocs.io/en/3.1.x/)
+- [Flask Login](https://flask-login.readthedocs.io/en/latest/)

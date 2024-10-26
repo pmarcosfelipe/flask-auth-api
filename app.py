@@ -5,7 +5,7 @@ from flask_login import LoginManager,login_user, current_user, logout_user, logi
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "your_secret_key"
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///database.db"
+app.config["SQLALCHEMY_DATABASE_URI"] = "mysql+pymysql://root:admin123@127.0.0.1:3306/flask-auth-api"
 
 login_manager = LoginManager()
 
@@ -102,11 +102,6 @@ def delete_user(user_id):
   
   return jsonify({"message": "User not found!"}), 404
 
-
-
-@app.route("/", methods=["GET"])
-def hello_world():
-  return "Hello World!"
 
 if __name__ == "__main__":
   app.run(debug=True)
