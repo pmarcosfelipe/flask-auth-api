@@ -31,7 +31,7 @@ db.session.commit()
 
 ## Run Docker
 
-Open terminal and run the scripts:
+Open terminal and run the script:
 
 ```
 docker-compose up -d
